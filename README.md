@@ -1,5 +1,5 @@
-**Puddey**
-Your organisation buddy! 
+**Puddey**,
+your organisation buddy! 
 
 1. Overview
 
