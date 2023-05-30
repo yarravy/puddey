@@ -1,0 +1,91 @@
+html {
+    background-color: #ece6dd;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.toggle-bar {
+    width: 4%;
+    background-color: #cabfb0;
+    margin: 0 5px 5px 5px;
+    border-radius: 5px;
+    position: relative;
+    top: 50px;
+}
+
+.menu {
+    width: 15%;
+    position: relative;
+    top: 50px;
+}
+
+.tasks {
+    width: 80%;
+}
+
+/* menu styling */
+
+.menu.container {
+    display: flex;
+    flex-direction: column;
+}
+
+h2.menu-headings {
+    font-size: 18px;
+}
+
+.menu-divider {
+    width: 80%;
+    background-color: #cabfb0;
+    height: 1.5px;
+    border: none;
+    margin: 30px auto;
+}
+
+/* inbox page styling */
+
+h1.inbox {
+    font-family: 'Libre Franklin', sans-serif;
+    color: #9c8e7a;
+    font-size: 21px;
+    position: relative;
+    left: 10px;
+}
+
+p.inbox {
+    font-size: 17px;
+}
+
+h2.menu-headings, p.inbox {
+    font-family: 'Libre Franklin', sans-serif;
+    border: none;
+    border-color: #cabfb0;
+    margin: 5px auto;
+    border-radius: 5px;
+    width: 80%;
+    color: #9c8e7a;
+    background-color: #e2ddd2;
+    padding: 10px 8px 8px 10px;
+}
+
+p.inbox {
+    width: 90%;
+}
+
+.menu-headings:hover, p.inbox:hover {
+    background-color: #cabfb0;
+    color: #ece6dd;
+    cursor: pointer;
+}
+
+.inbox-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 10px;
+}
+
+
