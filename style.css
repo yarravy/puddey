@@ -1,25 +1,43 @@
-html {
-    background-color: #ece6dd;
+
+/*
+1: indicates the beige theme
+*/
+:root {
+    --background-color1: #ece6dd;
+    --deeper-background1: #ccc6be;
+    --lighter-background1: #f5f2ee;
+    --font-color1: #706759;
+    --heading-task-background1: #e4ded6;
+    --font-family1: 'Lora', serif;
+}
+
+html, body {
+    background-color: var(--background-color1);
+    padding: 0px;
+    margin: 0px;
+    height: 100vh;
+}
+
+body {
+    min-height: 100vh;
 }
 
 .container {
     display: flex;
     flex-direction: row;
+    height: 100%
 }
 
 .toggle-bar {
-    width: 4%;
-    background-color: #cabfb0;
-    margin: 0 5px 5px 5px;
-    border-radius: 5px;
-    position: relative;
-    top: 50px;
+    width: 3%;
+    background-color: var(--deeper-background1);
 }
 
 .menu {
     width: 15%;
     position: relative;
-    top: 50px;
+    display: flex;
+    flex-direction: column;
 }
 
 .tasks {
@@ -28,64 +46,147 @@ html {
 
 /* menu styling */
 
-.menu.container {
-    display: flex;
-    flex-direction: column;
-}
-
-h2.menu-headings {
-    font-size: 18px;
+h1, h2 {
+    font-weight: normal;
 }
 
 .menu-divider {
     width: 80%;
-    background-color: #cabfb0;
+    background-color: var(--deeper-background1);
     height: 1.5px;
     border: none;
     margin: 30px auto;
 }
 
-/* inbox page styling */
+button.menu-headings {
+    font-size: 18px;
+    width: 100%;
+}
 
-h1.inbox {
-    font-family: 'Libre Franklin', sans-serif;
-    color: #9c8e7a;
-    font-size: 21px;
+.button-container {
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    border-color: var(--deeper-background1);
+    border-radius: 5px;
+    width: 80%;
+    color: var(--font-color1);
+    text-align: left;
+    position: relative;
+
+}
+
+.menu-spacer {
+    height: 50px;
+}
+
+/* menu-headings page styling */
+
+h1.inbox, h1.today, h1.week, h1.completed, h1.trash {
+    font-family: var(--font-family1);
+    color: var(--font-color1);
+    font-size: 23px;
     position: relative;
     left: 10px;
 }
 
-p.inbox {
-    font-size: 17px;
-}
-
-h2.menu-headings, p.inbox {
-    font-family: 'Libre Franklin', sans-serif;
+p.inbox, input.inbox, button.menu-headings, input.quickAddTask, button.addTaskButton, button.taskAddForm {
+    font-family: var(--font-family1);
     border: none;
-    border-color: #cabfb0;
-    margin: 5px auto;
+    border-color: var(--deeper-background1);
     border-radius: 5px;
-    width: 80%;
-    color: #9c8e7a;
-    background-color: #e2ddd2;
+    color: var(--font-color1);
+    background-color: var(--heading-task-background1);
     padding: 10px 8px 8px 10px;
+    text-align: left;
 }
 
-p.inbox {
-    width: 90%;
+p.inbox, input.inbox, button.menu-headings {
+    margin: 5px auto;
 }
 
-.menu-headings:hover, p.inbox:hover {
-    background-color: #cabfb0;
-    color: #ece6dd;
+.addTask {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+input.quickAddTask {
+    padding: 5px 7px 7px 20px;
+    width: 80%;
+    font-size: 17px;
+    margin-left: 15px;
+}
+
+button.addTaskButton {
+    padding:  0px 5px 0px 5px;
+    width: 3%;
+    font-size: 23px;
+    text-align: center;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0 1px var(--deeper-background1);
+}
+
+.menu-headings:hover, p.inbox:hover, p.today:hover, p.week:hover, button.addTaskButton:hover, button.taskAddForm:hover {
+    background-color: var(--deeper-background1);
+    color: var(--background-color1);
     cursor: pointer;
+    transition: 0.4s;
 }
 
-.inbox-container {
+.inbox-container, .today-container, .week-container, .completed-container, .trash-container {
     display: flex;
     flex-direction: column;
     position: relative;
     top: 10px;
 }
 
+.today-container, .week-container, .completed-container, .trash-container {
+    display: none;
+}
 
+form.taskAddForm {
+    display: none;
+    flex-direction: column;
+    width: 50vw;
+    height: 50vh;
+    position: absolute;
+    background-color: var(--lighter-background1);
+    z-index: 9;
+    position: fixed;
+    left: 25%;
+    top: 10%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 1px var(--deeper-background1);
+    padding: 20px;
+}
+
+.taskAddForm::placeholder {
+    font-family: var(--font-family1);
+    font-size: 17px;
+}
+
+input.taskAddForm {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+button.taskAddForm {
+    margin: 5px auto;
+    position: relative;
+    bottom: 10%;
+    padding: 10px 30px 10px 30px;
+    margin: 50px auto;
+}
+
+.taskAddFormButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

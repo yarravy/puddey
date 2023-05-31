@@ -7,33 +7,79 @@
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
+        <script src="script.js"></script>
     </head>
     <body>
         <div class="container">
             <div class="toggle-bar"></div>
             
             <div class="menu">
-                <div class="menu-container"></div>
-                    <h2 class="menu-headings" class="inbox">Inbox</h2>
-                    <h2 class="menu-headings">Today</h2>
-                    <h2 class="menu-headings">This Week</h2>
+                    <div class="menu-spacer"></div>
+                    <div class="button-container">
+                        <button class="menu-headings" onclick="openInbox()">Inbox</button>
+                    </div>
+                    <div class="button-container">
+                        <button class="menu-headings" onclick="openToday()">Today</button>
+                    </div>
+                    <div class="button-container">
+                        <button class="menu-headings" onclick="openWeek()">This Week</button>
+                    </div>
                     <hr class="menu-divider" />
-                    <h2 class="menu-headings">Lists</h2>
-                    <h2 class="menu-headings">Tags</h2>
+                    <div class="button-container">
+                        <button class="menu-headings">Lists</button>
+                    </div>
+                    <div class="button-container">
+                        <button class="menu-headings">Tags</button>
+                    </div>
                     <hr class="menu-divider" />
-                    <h2 class="menu-headings">Completed</h2>
-                    <h2 class="menu-headings">Trash</h2>
+                    <div class="button-container">
+                        <button class="menu-headings" onclick="openCompleted()">Completed</button>
+                    </div>
+                    <div class="button-container">
+                        <button class="menu-headings" onclick="openTrash()">Trash</button>
+                    </div>
             </div>
             
             <div class="tasks">
-                <div class="inbox-container">
+                <div class="inbox-container" id="myInbox">
                     <h1 class="inbox">Inbox</h1>
-                    <p class="inbox">+ Add Task</p>
+                    <div class="addTask">
+                        <button class="addTaskButton" onclick="openTaskForm()">+</button>
+                        <input class="quickAddTask" placeholder="+ Quick Add Task" type="text">
+                    </div>
+                </div>
+                <div class="today-container" id="myToday">
+                    <h1 class="today">Today</h1>
+                    <div class="addTask">
+                        <button class="addTaskButton">+</button>
+                        <input class="quickAddTask" placeholder="+ Quick Add Task" type="text">
+                    </div>
+                </div>
+                <div class="week-container" id="myWeek">
+                    <h1 class="week">This Week</h1>
+                    <div class="addTask">
+                        <button class="addTaskButton" onclick="openForm()">+</button>
+                        <input class="quickAddTask" placeholder="+ Quick Add Task" type="text">
+                    </div>
+                </div>
+
+                <div class="completed-container" id="myCompleted">
+                    <h1 class="completed">Completed</h1>
+                </div>
+                <div class="trash-container" id="myTrash">
+                    <h1 class="trash">Trash</h1>
                 </div>
             </div>
-            
-            <div class="details"></div>
+            <form class="taskAddForm" id="taskAdd">
+                <input type="text" class="taskAddForm" id="taskName" placeholder="Task Name" required/>
+                <input type="text" class="taskAddForm" id="taskDescription" placeholder="Description" required/>
+                <input type="date" class="taskAddForm" id="taskDateDue"placeholder="Date Due" />
+                <div class="taskAddFormButtons">
+                    <button class="taskAddForm" onclick="closeForm()" type="Cancel">Cancel</button>
+                    <button class="taskAddForm" type="submit">Add Task</button>
+                </div>
+            </form>
         </div>
     </body>
 </html>
