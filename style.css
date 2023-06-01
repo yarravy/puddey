@@ -34,7 +34,7 @@ body {
 }
 
 .menu {
-    width: 15%;
+    width: 20%;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -48,6 +48,14 @@ body {
 
 h1, h2 {
     font-weight: normal;
+    font-family: var(--font-family1);
+    color: var(--font-color1);
+    position: relative;
+    left: 10px;
+}
+
+h1.taskbox-heading {
+    font-size: 23px;
 }
 
 .menu-divider {
@@ -81,14 +89,6 @@ button.menu-headings {
 }
 
 /* menu-headings page styling */
-
-h1.inbox, h1.today, h1.week, h1.completed, h1.trash {
-    font-family: var(--font-family1);
-    color: var(--font-color1);
-    font-size: 23px;
-    position: relative;
-    left: 10px;
-}
 
 p.inbox, input.inbox, button.menu-headings, input.quickAddTask, button.addTaskButton, button.taskAddForm {
     font-family: var(--font-family1);
@@ -189,4 +189,55 @@ button.taskAddForm {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+label.taskAddForm {
+    font-family: var(--font-family1);
+    font-size: 17px;
+    color: var(--font-color1);
+    margin: 5px;
+    padding: 8px;
+}
+
+.taskAddForm.dates {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.menu-toggle {
+    display: none;
+    width: 10%;
+}
+
+button.menu-toggle-icon {
+    height: 25px;
+    width: 30px;
+    margin: 5px auto;
+    margin-top: 10px;
+    border: none;
+    background-color: var(--background-color1);
+    color: var(--font-color1);
+    margin-top: 30px;
+}
+
+button.menu-toggle-icon:hover {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    .toggle-bar {
+        display: none;
+    }
+    button.menu-headings {
+        font-size: 15px;
+    }
+    .menu-toggle {
+        display: flex;
+        width: 10%;
+    }
+    .menu {
+        display: none;
+        width: 100%;
+    }
 }

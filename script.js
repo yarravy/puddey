@@ -44,6 +44,13 @@ function openTaskForm() {
 
 function closeTaskForm() {
     document.getElementById("taskAdd").style.display="none";
-    document.getElementById("taskName").required=false;
-    document.getElementById("taskDescription").required=false;
 }
+
+/*function openMenuBar() {
+    document.getElementById("menu").style.display="flex";
+    document.getElementById("tasks").style.display="none";
+}*/
+
+$(document).ready(openMenuBar() {
+    $("button.menu-toggle-icon").click()
+})

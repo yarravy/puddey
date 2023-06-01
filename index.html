@@ -9,12 +9,15 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
         <script src="script.js"></script>
-    </head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        </head>
     <body>
         <div class="container">
             <div class="toggle-bar"></div>
-            
-            <div class="menu">
+            <div class="menu-toggle" id="menu-toggle">
+                <button class="menu-toggle-icon" onclick="openMenuBar()"><i class="fa fa-light fa-bars fa-lg"></i></button>
+            </div>
+            <div class="menu" id="menu">
                     <div class="menu-spacer"></div>
                     <div class="button-container">
                         <button class="menu-headings" onclick="openInbox()">Inbox</button>
@@ -41,23 +44,23 @@
                     </div>
             </div>
             
-            <div class="tasks">
+            <div class="tasks" id="tasks">
                 <div class="inbox-container" id="myInbox">
-                    <h1 class="inbox">Inbox</h1>
+                    <h1 class="taskbox-heading">Inbox</h1>
                     <div class="addTask">
                         <button class="addTaskButton" onclick="openTaskForm()">+</button>
                         <input class="quickAddTask" placeholder="+ Quick Add Task" type="text">
                     </div>
                 </div>
                 <div class="today-container" id="myToday">
-                    <h1 class="today">Today</h1>
+                    <h1 class="taskbox-heading">Today</h1>
                     <div class="addTask">
                         <button class="addTaskButton">+</button>
                         <input class="quickAddTask" placeholder="+ Quick Add Task" type="text">
                     </div>
                 </div>
                 <div class="week-container" id="myWeek">
-                    <h1 class="week">This Week</h1>
+                    <h1 class="taskbox-heading">This Week</h1>
                     <div class="addTask">
                         <button class="addTaskButton" onclick="openForm()">+</button>
                         <input class="quickAddTask" placeholder="+ Quick Add Task" type="text">
@@ -65,18 +68,23 @@
                 </div>
 
                 <div class="completed-container" id="myCompleted">
-                    <h1 class="completed">Completed</h1>
+                    <h1 class="taskbox-heading">Completed</h1>
                 </div>
                 <div class="trash-container" id="myTrash">
-                    <h1 class="trash">Trash</h1>
+                    <h1 class="taskbox-heading">Trash</h1>
                 </div>
             </div>
             <form class="taskAddForm" id="taskAdd">
                 <input type="text" class="taskAddForm" id="taskName" placeholder="Task Name" required/>
-                <input type="text" class="taskAddForm" id="taskDescription" placeholder="Description" required/>
-                <input type="date" class="taskAddForm" id="taskDateDue"placeholder="Date Due" />
+                <input type="text" class="taskAddForm" id="taskDescription" placeholder="Description"/>
+                <div class="taskAddForm dates">
+                    <label class="taskAddForm">Task Start Date</label>
+                    <input type-="endDate" class="taskAddForm" id="taskStartDate" type="date" />
+                    <label class="taskAddForm">Date due</label>
+                    <input type="date" class="taskAddForm" id="taskDateDue"placeholder="Date Due" />
+                </div>
                 <div class="taskAddFormButtons">
-                    <button class="taskAddForm" onclick="closeForm()" type="Cancel">Cancel</button>
+                    <button class="taskAddForm" onclick="closeForm()" type="Cancel" formnovalidate>Cancel</button>
                     <button class="taskAddForm" type="submit">Add Task</button>
                 </div>
             </form>
