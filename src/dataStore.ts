@@ -1,3 +1,5 @@
+export type uId = number;
+
 export type user = {
     username: string;
     password: string;
