@@ -5,6 +5,8 @@ export type data = {
     users: user[],
 }
 
+export type token = string;
+
 export type user = {
     firstName: string,
     lastName: string,
@@ -12,6 +14,7 @@ export type user = {
     password: string,
     username: string,
     userID: number,
+    sessions: token[],
 } 
 
 const DATA: data = {
