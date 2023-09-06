@@ -35,7 +35,7 @@ export function requestUserSignUpV1(firstName: string, lastName: string,
     return JSON.parse(res.getBody() as string);
 }
 
-export function requestUserLoginV1(username: string, password: string): string | number {
+export function requestUserLoginV1(username: string, password: string): Object | number {
     const res = request(
         'POST',
         `${url}:${port}/user/login/v1`,

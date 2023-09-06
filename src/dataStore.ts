@@ -5,7 +5,7 @@ export type data = {
     users: user[],
 }
 
-export type token = number;
+export type token = string;
 
 export type user = {
     firstName: string,

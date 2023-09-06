@@ -1,5 +1,6 @@
 import { getData, setData, user } from './dataStore'
 import HTTPError from 'http-errors';
+import { v4 as uuidv4 } from 'uuid'
 
 export function userSignUpV1(firstName: string, lastName: string, username: string, email: string, password: string): number {
     // Checks length of first and last name, and username
@@ -41,8 +42,26 @@ export function userSignUpV1(firstName: string, lastName: string, username: stri
         password: password,
         username: username,
         userID: data.users.reduce((id, object) => Math.max(id, object['userID']), 0) + 1,
+        sessions: [],
     }
     data.users.push(newUser);
     
     return newUser.userID;
+}
+
+export function userLoginV1(username: string, password: string): Object {
+    const data = getData();
+    let usernameMatch = data.users.findIndex(user => user.username === username);
+    if (usernameMatch == -1) {
+        throw HTTPError(400, 'no account matches the given username');
+    }
+
+    if (password !== data.users[usernameMatch].password) {
+        throw HTTPError(400, 'password does not matches');
+    }
+
+    let newToken = uuidv4();
+    data.users[usernameMatch].sessions.push(newToken);
+
+    return { token: newToken };
 }
